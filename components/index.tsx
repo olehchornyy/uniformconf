@@ -13,6 +13,7 @@ import { RegisterForm } from "./RegisterForm";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { FinalPlea } from "./FinalPlea";
+import { ItProDay } from "./ItProDay";
 
 const mappings: ComponentMapping = {
   hero: Hero,
@@ -22,7 +23,8 @@ const mappings: ComponentMapping = {
   registrationForm: RegisterForm,
   header: Navbar,
   footer: Footer,
-  finalplea: FinalPlea
+  finalplea: FinalPlea,
+  itproday : ItProDay
 };
 
 type ComponentMapping = Record<string, ComponentType<any>>;
