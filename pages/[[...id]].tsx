@@ -10,6 +10,14 @@ import { Composition, Slot } from "@uniformdev/canvas-react";
 import { canvasClient } from "lib/canvasClient";
 import { resolveRenderer } from "../components";
 
+import {
+  createContentstackEnhancer,
+  CANVAS_CONTENTSTACK_PARAMETER_TYPES,
+} from '@uniformdev/canvas-contentstack';
+import { enhance, CanvasClient, EnhancerBuilder } from '@uniformdev/canvas';
+import contentstack from 'contentstack'
+
+
 const PreviewDevPanel = dynamic(
   () => import("lib/preview/PreviewDevPanel/PreviewDevPanel")
 );
@@ -51,6 +59,33 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       process.env.NODE_ENV === "development" || preview
         ? CANVAS_DRAFT_STATE
         : CANVAS_PUBLISHED_STATE,
+  });
+
+  const client = contentstack.Stack({
+    // NOTE: for production code ensure you use environment variables to
+    // configure Contentstack, not hard-coded values.
+    api_key: 'bltc0556c1ac32ebf79',
+    delivery_token: 'csa4c74d2073de500acb05aca8',
+    environment: 'production',
+    // contentstack.Region.US || contentstack.Region.EU
+    region: contentstack.Region.US,
+  });
+  
+  // create the Contentstack enhancer
+  const contentstackEnhancer = createContentstackEnhancer({ client });
+  
+  
+  // apply the enhancers to the composition data, enhancing it with external data
+  // In this case, the _value_ of the Contentstack parameter you created is enhanced
+  // with data from the Contentstack entry you selected in the Contentstack entry selector.
+  // You can create your own enhancers easily; they are a simple function.
+  await enhance({
+    composition,
+    enhancers: new EnhancerBuilder().parameterType(
+      CANVAS_CONTENTSTACK_PARAMETER_TYPES,
+      contentstackEnhancer
+    ),
+    context: {},
   });
 
   return {
