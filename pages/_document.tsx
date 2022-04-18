@@ -57,7 +57,7 @@ class MyDocument extends Document {
           />
           <meta
             name="description"
-            content="UniformConf, a Uniform content demo site"
+            content="ItProDay content demo site"
           />
         </Head>
         {tagManagerSrc && (

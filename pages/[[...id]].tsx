@@ -32,8 +32,8 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>UniformConf</title>
-        <meta name="description" content="UniformConf"></meta>
+        <title>Celebrate IT Pro Day ’21!</title>
+        <meta name="description" content="SolarWinds test site"></meta>
       </Head>
       <div>
         <Composition data={composition} resolveRenderer={resolveRenderer}>

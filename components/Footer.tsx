@@ -12,14 +12,14 @@ const Footer = () => {
               <a
                 aria-label="Uniform"
                 className="text-orange-600 no-underline hover:no-underline"
-                href="https://uniform.dev"
+                href="https://solarwinds.com"
               >
                 <Logo />
               </a>
             </Link>
           </div>
           <p className="text-gray-900 text-right flex-1 leading-8">
-            Uniform starter kit for Next.js © {new Date().getFullYear()}
+          ©{new Date().getFullYear()} SolarWinds Worldwide, LLC. All rights reserved.
           </p>
         </div>
       </div>
