@@ -59,6 +59,8 @@ class MyDocument extends Document {
             name="description"
             content="ItProDay content demo site"
           />
+          <script src="https://www.solarwinds.com/bundles/jquery?v=ywRv5tGf_C8UyV9Nh0RJf-e9u4Rh_SmIN-qx3i-kH8Y1"></script>
+          <script src="//assets.adobedtm.com/764583179334/dd952b9e6603/launch-d1359cc878c7.min.js"></script>
         </Head>
         {tagManagerSrc && (
           <>
@@ -81,6 +83,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <script type="text/javascript">_satellite.pageBottom();</script>
       </Html>
     );
   }
